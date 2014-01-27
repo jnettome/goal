@@ -6,6 +6,7 @@ class TrainingsControllerTest < ActionController::TestCase
     login_user
 
     @training = trainings(:sample_training)
+    @exercise = exercises(:sample_exercise)
   end
 
   test "should get index" do
@@ -21,7 +22,15 @@ class TrainingsControllerTest < ActionController::TestCase
 
   test "should create training" do
     assert_difference('Training.count') do
-      post :create, training: { body_group: @training.body_group, duration: @training.duration, name: @training.name, objective: @training.objective, schedule: @training.schedule }
+      post :create,
+      training: {
+        body_group: @training.body_group,
+        duration: @training.duration,
+        name: @training.name,
+        objective: @training.objective,
+        schedule: @training.schedule,
+        exercises_attributes: [@exercise]
+      }
     end
 
     assert_redirected_to training_path(assigns(:training))

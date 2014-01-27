@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sample_exercise:
+  name: Supino
+  repetitions: 1
+  series: 2
+  interval: 3
+  weight: 4
