@@ -1,11 +1,15 @@
 source 'https://rubygems.org'
 
+# Fix ruby version for heroku and rvm
+ruby '2.0.0'
+
 # Rails Core
 gem 'rails', '4.0.2'
-gem 'sqlite3'
-# gem 'pg'
+gem 'sqlite3', group: [:development, :test]
+gem 'pg'
 gem 'jbuilder', '~> 1.2'
 gem 'unicorn'
+gem 'rails_12factor', group: :production
 
 # Development
 gem 'quiet_assets', :group => :development
