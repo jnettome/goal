@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: john@doe.com
+  password: change_me
+  password_confirmation: change_me
+
+two:
+  email: mark@doe.com
+  password: change_me
+  password_confirmation: change_me
