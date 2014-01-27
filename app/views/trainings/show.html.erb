@@ -1,0 +1,32 @@
+<div class="page-header">
+  <%= link_to trainings_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_training_path(@training), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show training</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Teacher:</dt>
+  <dd><%= @training.teacher.name %></dd>
+
+  <dt>Name:</dt>
+  <dd><%= @training.name %></dd>
+
+  <dt>Objective:</dt>
+  <dd><%= @training.objective %></dd>
+
+  <dt>Duration:</dt>
+  <dd><%= @training.duration %></dd>
+
+  <dt>Schedule:</dt>
+  <dd><%= @training.schedule %></dd>
+
+  <dt>Body group:</dt>
+  <dd><%= @training.body_group %></dd>
+
+</dl>

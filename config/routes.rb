@@ -9,6 +9,9 @@ Mygoal::Application.routes.draw do
   resources :students, :controller => 'users'
   resources :teachers, :controller => 'users'
 
+  # Teachers
+  resources :trainings
+
   # Project index
   get "home/welcome"
   root 'home#welcome'

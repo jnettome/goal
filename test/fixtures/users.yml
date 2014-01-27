@@ -4,3 +4,8 @@ one:
   email: john@john.com
   salt: <%= salt = "aabbb3bbb3b31298321ABDBABDSI" %>
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret123", salt) %>
+  type: 'Teacher'
+  city: 'Curitiba/PR'
+  document: 'Sample'
+  specialty: 'BBB'
+  name: 'Professor John'

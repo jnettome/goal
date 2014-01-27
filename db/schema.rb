@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127204315) do
+ActiveRecord::Schema.define(version: 20140127222858) do
+
+  create_table "trainings", force: true do |t|
+    t.integer  "teacher_id"
+    t.string   "name"
+    t.text     "objective"
+    t.string   "duration"
+    t.text     "schedule"
+    t.string   "body_group"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trainings", ["teacher_id"], name: "index_trainings_on_teacher_id"
 
   create_table "users", force: true do |t|
     t.string   "email",            null: false
