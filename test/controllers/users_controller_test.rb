@@ -6,9 +6,9 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    login_user
     get :index
     assert_response :success
-    assert_not_nil assigns(:users)
   end
 
   test "should get new" do
