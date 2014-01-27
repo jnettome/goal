@@ -1,10 +1,7 @@
-<div class="page-header">
-  <h1>Minha Conta</h1>
-</div>
+<%= render partial: "users/#{current_user.type.downcase}_dashboard" %>
 
-Bla bla Bla
-
+<br><br><br><br><br><br>
 <div class="page-header">
-  <h2>Apagar minha conta</h2>
+  <h4>Apagar minha conta</h4>
 </div>
 <%= link_to 'Quero apagar minha conta', current_user, method: :delete, class: 'btn btn-danger', data: { confirm: 'Você tem certeza disso? Todos seus dados serão removidos portanto essa ação não terá retorno.' } %>
