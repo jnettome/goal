@@ -3,6 +3,10 @@ Mygoal::Application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :users
+
+  resources :students, :controller => 'users'
+  resources :teachers, :controller => 'users'
+
   resources :user_sessions, only: [:new, :create, :destroy]
 
   get "home/welcome"

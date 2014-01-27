@@ -23,9 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html {
-          redirect_to(:users, notice: 'Seja bem-vindo ao MYGOAL! Você se registrou com sucesso :)')
-        }
+        format.html { redirect_to(:users, notice: 'Seja bem-vindo ao MYGOAL! Você se registrou com sucesso :)') }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -63,7 +61,15 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation,
+      if params[:user].blank? && !params[:student].blank?
+        sti_params = params.require(:student)
+      elsif params[:user].blank? && !params[:teacher].blank?
+        sti_params = params.require(:teacher)
+      else
+        sti_params = params.require(:user)
+      end
+
+      sti_params.permit(:email, :password, :password_confirmation,
         :name, :city, :document, :specialty, :type)
     end
 end
