@@ -23,3 +23,6 @@ gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-ge
 
 # User authentication
 gem 'sorcery'
+
+# Nested forms made easy
+gem 'cocoon', '~> 1.2.5'
