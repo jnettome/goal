@@ -3,7 +3,7 @@ Mygoal::Application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :users
-  resources :user_sessions
+  resources :user_sessions, only: [:new, :create, :destroy]
 
   get "home/welcome"
   # The priority is based upon order of creation: first created -> highest priority.

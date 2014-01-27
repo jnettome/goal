@@ -26,9 +26,9 @@ class UsersController < ApplicationController
         format.html {
           redirect_to(:users, notice: 'Seja bem-vindo ao MYGOAL! Você se registrou com sucesso :)')
         }
-        format.json { render action: 'show', status: :created, location: @user }
+        format.json { render :show, status: :created, location: @user }
       else
-        format.html { render action: 'new' }
+        format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'Seu perfil foi atualizado com sucesso' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
