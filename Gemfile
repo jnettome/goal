@@ -9,6 +9,7 @@ gem 'unicorn'
 
 # Development
 gem 'quiet_assets', :group => :development
+gem 'simplecov', :require => false, :group => :test
 
 # Assets
 gem 'sass-rails', '~> 4.0.0'
