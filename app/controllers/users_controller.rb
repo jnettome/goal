@@ -19,10 +19,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    login(user_params[:email], user_params[:password])
 
     respond_to do |format|
       if @user.save
+        login(@user.email, user_params[:password])
         format.html { redirect_to(:users, notice: 'Seja bem-vindo ao MYGOAL! Você se registrou com sucesso :)') }
         format.json { render :show, status: :created, location: @user }
       else
@@ -61,6 +61,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
+      # Doing that to solve STI routes bug :(
       if params[:user].blank? && !params[:student].blank?
         sti_params = params.require(:student)
       elsif params[:user].blank? && !params[:teacher].blank?
