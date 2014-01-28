@@ -5,6 +5,7 @@ ruby '2.0.0'
 
 # Rails Core
 gem 'rails', '4.0.2'
+gem 'rails-i18n', '~> 4.0.0'
 gem 'sqlite3', group: [:development, :test]
 gem 'pg'
 gem 'jbuilder', '~> 1.2'
