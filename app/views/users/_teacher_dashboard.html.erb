@@ -22,8 +22,17 @@
   <% if 1 == 1 %>
   <div class="col-lg-6">
     <div class="well">
-      Você não possui alunos associados. <br>
-      <%= link_to "Buscar alunos", '#', class: 'btn btn-primary' %>
+      <% if current_user.students.empty? %>
+        Você não possui alunos associados. <br>
+        <%= link_to "Buscar alunos", '#', class: 'btn btn-primary' %>
+      <% else %>
+        <p>Meus alunos</p>
+        <ul>
+        <% current_user.students.each do |student| %>
+          <li><%= link_to student.name, student %></li>
+        <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
   <% else %>

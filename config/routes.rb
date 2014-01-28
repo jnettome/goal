@@ -13,6 +13,8 @@ Mygoal::Application.routes.draw do
   resources :trainings
 
   get "enrollments/search"
+  get "enrollments/users"
+  post "enrollments/enroll"
   resources :enrollments, only: [:index]
 
 
