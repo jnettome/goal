@@ -2,13 +2,11 @@ require 'test_helper'
 
 class FormParqsControllerTest < ActionController::TestCase
   setup do
-    @form_parq = form_parqs(:one)
-  end
+    @user = users(:sample_student)
+    login_user
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:form_parqs)
+    @form_parq = form_parqs(:one)
+    @form_parq.user_id = @user.id
   end
 
   test "should get new" do
@@ -18,7 +16,7 @@ class FormParqsControllerTest < ActionController::TestCase
 
   test "should create form_parq" do
     assert_difference('FormParq.count') do
-      post :create, form_parq: { answer1: @form_parq.answer1, answer3: @form_parq.answer3, answer4: @form_parq.answer4, answer5: @form_parq.answer5, answer6: @form_parq.answer6, answer7: @form_parq.answer7, answer: @form_parq.answer, user_id: @form_parq.user_id }
+      post :create, form_parq: { answer1: @form_parq.answer1, answer3: @form_parq.answer3, answer4: @form_parq.answer4, answer5: @form_parq.answer5, answer6: @form_parq.answer6, answer7: @form_parq.answer7, answer2: @form_parq.answer2, user_id: @form_parq.user_id }
     end
 
     assert_redirected_to form_parq_path(assigns(:form_parq))
@@ -35,7 +33,7 @@ class FormParqsControllerTest < ActionController::TestCase
   end
 
   test "should update form_parq" do
-    patch :update, id: @form_parq, form_parq: { answer1: @form_parq.answer1, answer3: @form_parq.answer3, answer4: @form_parq.answer4, answer5: @form_parq.answer5, answer6: @form_parq.answer6, answer7: @form_parq.answer7, answer: @form_parq.answer, user_id: @form_parq.user_id }
+    patch :update, id: @form_parq, form_parq: { answer1: @form_parq.answer1, answer3: @form_parq.answer3, answer4: @form_parq.answer4, answer5: @form_parq.answer5, answer6: @form_parq.answer6, answer7: @form_parq.answer7, answer2: @form_parq.answer2, user_id: @form_parq.user_id }
     assert_redirected_to form_parq_path(assigns(:form_parq))
   end
 

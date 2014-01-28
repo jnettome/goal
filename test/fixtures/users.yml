@@ -10,3 +10,11 @@ one:
   specialty: 'BBB'
   name: 'Professor John'
   short_bio: 'Formado na UFPR'
+
+sample_student:
+  email: doe@john.com
+  salt: <%= salt = "aabbb3bbb3b31298321ABDBABDSI" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret123", salt) %>
+  type: 'Student'
+  city: 'Curitiba/PR'
+  name: 'Estudante John'

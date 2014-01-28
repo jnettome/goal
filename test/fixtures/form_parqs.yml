@@ -3,17 +3,7 @@
 one:
   user_id: 1
   answer1: false
-  answer: 
-  answer3: false
-  answer4: false
-  answer5: false
-  answer6: false
-  answer7: false
-
-two:
-  user_id: 1
-  answer1: false
-  answer: 
+  answer2: false
   answer3: false
   answer4: false
   answer5: false
