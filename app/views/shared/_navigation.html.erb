@@ -15,6 +15,9 @@
         <% if current_user.is_a? Teacher %>
           <li><%= link_to "Meus Treinos", trainings_path %></li>
           <li><%= link_to "Alunos", enrollments_path %></li>
+        <% elsif current_user.is_a? Student %>
+          <li><%= link_to "Meus Treinos", '#' %></li>
+          <li><%= link_to "Professores", enrollments_path %></li>
         <% end %>
       <% else %>
         <li><%= link_to "Home", root_path %></li>

@@ -1,3 +1,4 @@
+<% if current_user.is_a? Teacher %>
 <div class="page-header">
   <h1>Alunos <small>Gerencie seus alunos e treinos ou procure novos</small></h1>
 </div>
@@ -25,3 +26,32 @@
   </div>
 </div>
 
+<% else %>
+
+<div class="page-header">
+  <h1>Professores <small>Gerencie seus professores e/ou procure novos</small></h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 well">
+    <p>Meus professores</p>
+
+    <ul>
+      <% current_user.teachers.each do |teacher| %>
+      <li><%= link_to teacher.name, teacher %></li>
+      <% end %>
+      <% if current_user.teachers.blank? %>
+      <li>nenhum professor associado</li>
+      <% end %>
+    </ul>
+
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <label class="sr-only" for="teacherName">Nome do Professor</label>
+        <input type="name" class="form-control " id="teacherName" placeholder="Digite para procurar">
+      </div>
+      <button type="submit" class="btn btn-info">Adicionar</button>
+    </form>
+  </div>
+</div>
+<% end %>

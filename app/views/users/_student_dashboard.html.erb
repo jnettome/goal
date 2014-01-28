@@ -3,18 +3,35 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-6">
-    <%= link_to "Meus Treinos", trainings_path, class: 'btn btn-default btn-lg btn-info btn-block' %>
+  <div class="col-lg-12">
+    <div class="well">
+    <% if current_user.teachers.empty? %>
+      Você não possui nenhum professor associado a sua conta. <%= link_to 'Procurar professores', enrollments_path %>
+    <% else %>
+      <ul>
+      <% current_user.teachers.each do |teacher| %>
+        <li><%= link_to teacher.name, teacher %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    </div>
   </div>
 
-  <div class="col-lg-6 well">
-    <p>Últimos relatórios enviados:</p>
+  <div class="col-lg-12">
+    <div class="well">
+    <% if current_user.teachers.empty? %>
+      Você não possui treinos para execução. <%= link_to 'Procurar treinos', '#' %>
+    <% else %>
+      <ul>
+      <% current_user.teachers.each do |teacher| %>
+        <li><%= link_to teacher.name, teacher %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    </div>
+  </div>
 
-    <ul>
-      <li><a href="#">João dos Santos</a></li>
-      <li><a href="#">Maria José de Conceição</a></li>
-      <li><a href="#">Juliana Lebllof</a></li>
-    </ul>
-    <%= link_to "Meus Alunos", '#', class: 'btn btn-default btn-lg btn-info btn-block' %>
+  <div class="col-lg-12">
+    <%= link_to "Enviar relatório de execução de treino", '#', class: 'btn btn-default btn-lg btn-info btn-block' %>
   </div>
 </div>
