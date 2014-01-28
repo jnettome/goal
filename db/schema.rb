@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128162321) do
+ActiveRecord::Schema.define(version: 20140128165811) do
 
   create_table "exercises", force: true do |t|
     t.integer  "training_id"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20140128162321) do
   end
 
   add_index "exercises", ["training_id"], name: "index_exercises_on_training_id"
+
+  create_table "form_parqs", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "answer1"
+    t.boolean  "answer2"
+    t.boolean  "answer3"
+    t.boolean  "answer4"
+    t.boolean  "answer5"
+    t.boolean  "answer6"
+    t.boolean  "answer7"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "form_parqs", ["user_id"], name: "index_form_parqs_on_user_id"
 
   create_table "teachers_students", force: true do |t|
     t.integer "teacher_id"

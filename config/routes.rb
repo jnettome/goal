@@ -1,4 +1,6 @@
 Mygoal::Application.routes.draw do
+  resources :form_parqs, except: :index
+
   # User authentication
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

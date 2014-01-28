@@ -1,0 +1,43 @@
+<div class="page-header">
+  <%= link_to new_form_parq_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Form parq
+  <% end %>
+
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>User</th>
+            <th>Answer1</th>
+            <th>Answer</th>
+            <th>Answer3</th>
+            <th>Answer4</th>
+            <th>Answer5</th>
+            <th>Answer6</th>
+            <th>Answer7</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @form_parqs) do |form_parq| %>
+            <td><%= form_parq.user_id %></td>
+            <td><%= form_parq.answer1 %></td>
+            <td><%= form_parq.answer %></td>
+            <td><%= form_parq.answer3 %></td>
+            <td><%= form_parq.answer4 %></td>
+            <td><%= form_parq.answer5 %></td>
+            <td><%= form_parq.answer6 %></td>
+            <td><%= form_parq.answer7 %></td>
+            <td><%= link_to 'Show', form_parq %></td>
+        <td><%= link_to 'Edit', edit_form_parq_path(form_parq) %></td>
+        <td><%= link_to 'Destroy', form_parq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

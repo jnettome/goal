@@ -1,0 +1,62 @@
+<%= form_for(@form_parq, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @form_parq.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@form_parq.errors.count, "error") %> prohibited this form_parq from being saved:</h4>
+
+      <ul>
+      <% @form_parq.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :answer1, "Alguma vez um médico lhe disse que você possui um problema do coração e lhe recomendou que só fizesse atividade física sob supervisão médica?", :class => "col-lg-11 control-label" %>
+    <div class="col-lg-1">
+      <%= f.check_box :answer1, :class => "form-control" %> Sim
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer2, "Você sente dor no peito, causada pela prática de atividade física?", :class => "col-lg-11 control-label" %>
+    <div class="col-lg-1">
+      <%= f.check_box :answer2, :class => "form-control" %> Sim
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer3, "Você sentiu dor no peito no último mês?", :class => "col-lg-11 control-label" %>
+    <div class="col-lg-1">
+      <%= f.check_box :answer3, :class => "form-control" %> Sim
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer4, "Você tende a perder a consciência ou cair, como resultado de tonteira ou desmaio?", :class => "col-lg-11 control-label" %>
+    <div class="col-lg-1">
+      <%= f.check_box :answer4, :class => "form-control" %> Sim
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer5, "Você tem algum problema ósseo ou muscular que poderia ser agravado com a prática de atividade física?", :class => "col-lg-11 control-label" %>
+    <div class="col-lg-1">
+      <%= f.check_box :answer5, :class => "form-control" %> Sim
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer6, "Algum médico já lhe recomendou o uso de medicamentos para a sua pressão arterial, para circulação ou coração?", :class => "col-lg-11 control-label" %>
+    <div class="col-lg-1">
+      <%= f.check_box :answer6, :class => "form-control" %> Sim
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer7, "Você tem consciência, através da sua própria experiência ou aconselhamento médico, de alguma outra razão física que impeça sua prática de atividade física sem supervisão médica?", :class => "col-lg-11 control-label" %>
+    <div class="col-lg-1">
+      <%= f.check_box :answer7, :class => "form-control" %> Sim
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-6 col-lg-6">
+      <%= f.submit "Enviar", :class => "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

@@ -4,6 +4,9 @@ class Student < User
     association_foreign_key: 'teacher_id',
     join_table: 'teachers_students'
 
+  has_one :form_parq,
+    foreign_key: 'user_id'
+
   validates :name, :city, :state, presence: true
 
   # before_save :set_details

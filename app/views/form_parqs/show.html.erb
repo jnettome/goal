@@ -1,0 +1,51 @@
+<div class="page-header">
+  <%= link_to users_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Voltar
+  <% end %>
+  <h1>PAR-Q <small>Questionário de Prontidão para Atividade Física</small></h1>
+</div>
+
+<dt>Aluno:</dt>
+<dd><%= @form_parq.student.try(:name) %></dd>
+
+<div class="table-responsive">
+  <table class="table-striped table-hover table">
+    <thead>
+      <tr>
+        <th>Pergunta</th>
+        <th>Resposta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Alguma vez um médico lhe disse que você possui um problema do coração e lhe recomendou que só fizesse atividade física sob supervisão médica?</td>
+        <td><%= @form_parq.answer1 %></td>
+      </tr>
+      <tr>
+        <td>Você sente dor no peito, causada pela prática de atividade física?</td>
+        <td><%= @form_parq.answer2 %></td>
+      </tr>
+      <tr>
+        <td>Você sentiu dor no peito no último mês?</td>
+        <td><%= @form_parq.answer3 %></td>
+      </tr>
+      <tr>
+        <td>Você tende a perder a consciência ou cair, como resultado de tonteira ou desmaio?</td>
+        <td><%= @form_parq.answer4 %></td>
+      </tr>
+      <tr>
+        <td>Você tem algum problema ósseo ou muscular que poderia ser agravado com a prática de atividade física?</td>
+        <td><%= @form_parq.answer5 %></td>
+      </tr>
+      <tr>
+        <td>Algum médico já lhe recomendou o uso de medicamentos para a sua pressão arterial, para circulação ou coração?</td>
+        <td><%= @form_parq.answer6 %></td>
+      </tr>
+      <tr>
+        <td>Você tem consciência, através da sua própria experiência ou aconselhamento médico, de alguma outra razão física que impeça sua prática de atividade física sem supervisão médica?</td>
+        <td><%= @form_parq.answer7 %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
