@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>Alunos <small>Gerencie seus alunos e treinos ou procure novos</small></h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 well">
+    <p>Meus alunos</p>
+
+    <ul>
+      <% current_user.students.each do |student| %>
+      <li><%= link_to student.name, student %></li>
+      <% end %>
+      <% if current_user.students.blank? %>
+      <li>nenhum aluno associado</li>
+      <% end %>
+    </ul>
+
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <label class="sr-only" for="studentName">Nome do Aluno</label>
+        <input type="name" class="form-control " id="studentName" placeholder="Digite para procurar">
+      </div>
+      <button type="submit" class="btn btn-info">Adicionar</button>
+    </form>
+  </div>
+</div>
+

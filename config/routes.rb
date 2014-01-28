@@ -12,6 +12,10 @@ Mygoal::Application.routes.draw do
   # Teachers
   resources :trainings
 
+  get "enrollments/search"
+  resources :enrollments, only: [:index]
+
+
   # Project index
   get "home/welcome"
   root 'home#welcome'
