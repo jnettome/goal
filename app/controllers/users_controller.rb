@@ -72,6 +72,6 @@ class UsersController < ApplicationController
       end
 
       sti_params.permit(:email, :password, :password_confirmation,
-        :name, :city, :document, :specialty, :type)
+        :name, :city, :state, :short_bio, :document, :specialty, :type)
     end
 end

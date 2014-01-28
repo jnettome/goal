@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128001029) do
+ActiveRecord::Schema.define(version: 20140128162321) do
 
   create_table "exercises", force: true do |t|
     t.integer  "training_id"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20140128001029) do
     t.string   "city"
     t.string   "document"
     t.string   "specialty"
+    t.string   "state"
+    t.text     "short_bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

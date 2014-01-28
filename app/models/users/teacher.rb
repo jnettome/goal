@@ -6,5 +6,5 @@ class Teacher < User
     association_foreign_key: 'student_id',
     join_table: 'teachers_students'
 
-  validates :name, :city, :document, :specialty, presence: true
+  validates :name, :city, :state, :short_bio, :document, :specialty, presence: true
 end

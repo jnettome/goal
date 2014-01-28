@@ -4,7 +4,7 @@ class Student < User
     association_foreign_key: 'teacher_id',
     join_table: 'teachers_students'
 
-  validates :name, :city, presence: true
+  validates :name, :city, :state, presence: true
 
   # before_save :set_details
 
