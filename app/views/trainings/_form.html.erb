@@ -13,52 +13,69 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, :class => "col-lg-2 control-label" %>
+    <%= f.label :name, 'Nome', :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_field :name, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :objective, :class => "col-lg-2 control-label" %>
+    <%= f.label :objective, 'Objetivo', :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_area :objective, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :duration, :class => "col-lg-2 control-label" %>
+    <%= f.label :duration, 'Duração', :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_field :duration, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :schedule, :class => "col-lg-2 control-label" %>
+    <%= f.label :schedule, 'Rotina de Treino', :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_area :schedule, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :body_group, :class => "col-lg-2 control-label" %>
+    <%= f.label :body_group, 'Tipo de Treino', :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_field :body_group, :class => "form-control" %>
     </div>
   </div>
 
-  <fieldset>
+  <div class="page_header">
     <h3>Exercícios</h3>
-    <div id="exercises">
-      <%= f.fields_for :exercises do |exercise| %>
-        <%= render 'exercise_fields', :f => exercise %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association 'adicionar exercício', f, :exercises, class: 'btn btn-info' %>
-      </div>
-    </div>
-  </fieldset>
+  </div>
+  <div class="table-responsive">
+    <table class="table-striped table-hover table">
+      <thead>
+        <tr>
+          <th>Exercício</th>
+          <th>Repetições</th>
+          <th>Séries</th>
+          <th>Intervalo</th>
+          <th>Peso</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="exercises">
+        <%= f.fields_for :exercises do |exercise| %>
+          <%= render 'exercise_fields', :f => exercise %>
+        <% end %>
+      </tbody>
+      <tfoot class="links">
+        <tr>
+          <td colspan="5"></td>
+          <td><%= link_to_add_association 'adicionar exercício', f, :exercises, class: 'btn btn-info', :"data-association-insertion-node" => raw('table'), :"data-association-insertion-method" => "append" %></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit :class => "btn btn-primary" %>
+      <%= f.submit :class => "btn btn-primary btn-lg" %>
     </div>
   </div>
 <% end %>

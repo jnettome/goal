@@ -1,32 +1,52 @@
 <div class="page-header">
   <%= link_to trainings_path, :class => 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Voltar para Meus Treinos
   <% end %>
   <%= link_to edit_training_path(@training), :class => 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Editar
   <% end %>
-  <h1>Show training</h1>
+  <h1>Treino <small><%= @training.try(:name) %></small></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Teacher:</dt>
+  <dt>Professor:</dt>
   <dd><%= @training.teacher.name %></dd>
 
-  <dt>Name:</dt>
-  <dd><%= @training.name %></dd>
+  <dt>Objetivo:</dt>
+  <dd><%= @training.try(:objective) %></dd>
 
-  <dt>Objective:</dt>
-  <dd><%= @training.objective %></dd>
+  <dt>Duração:</dt>
+  <dd><%= @training.try(:duration) %></dd>
 
-  <dt>Duration:</dt>
-  <dd><%= @training.duration %></dd>
+  <dt>Rotina de Treino:</dt>
+  <dd><%= @training.try(:schedule) %></dd>
 
-  <dt>Schedule:</dt>
-  <dd><%= @training.schedule %></dd>
-
-  <dt>Body group:</dt>
-  <dd><%= @training.body_group %></dd>
-
+  <dt>Tipo de Treino:</dt>
+  <dd><%= @training.try(:body_group) %></dd>
 </dl>
+
+<div class="table-responsive">
+  <table class="table-striped table-hover table">
+    <thead>
+      <tr>
+        <th>Exercício</th>
+        <th>Repetições</th>
+        <th>Séries</th>
+        <th>Intervalo</th>
+        <th>Peso</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @training.exercises) do |exercise| %>
+        <td><%= exercise.try(:name) %></td>
+        <td><%= exercise.try(:repetitions) %></td>
+        <td><%= exercise.try(:series) %></td>
+        <td><%= exercise.try(:interval) %></td>
+        <td><%= exercise.try(:weight) %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
