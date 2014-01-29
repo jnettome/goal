@@ -16,9 +16,20 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create user" do
+  test "should create teacher user" do
     assert_difference('User.count') do
-      post :create, user: { salt: @user.salt, email: @user.email, crypted_password: @user.crypted_password }
+      post :create, user: {
+        email: @user.email.gsub(/w/, '') + rand(1000000).to_s + "@bol.com", # TODO xunxo
+        password: '1234',
+        password_confirmation: '1234',
+        type: @user.type,
+        city: @user.city,
+        state: 'PR',
+        document: @user.document,
+        specialty: @user.specialty,
+        name: @user.name,
+        short_bio: @user.short_bio
+      }
     end
 
     assert_redirected_to users_path

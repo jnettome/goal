@@ -15,7 +15,6 @@ class FormParqsController < ApplicationController
   def new
     if current_user.form_parq.nil?
       @form_parq = current_user.build_form_parq
-      puts @form_parq.inspect
     else
       redirect_to current_user.form_parq
     end
